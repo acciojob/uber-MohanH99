@@ -15,10 +15,13 @@ import com.driver.repository.DriverRepository;
 
 @Service
 public class AdminServiceImpl implements AdminService {
+
 	@Autowired
 	AdminRepository adminRepository1;
+
 	@Autowired
 	DriverRepository driverRepository1;
+
 	@Autowired
 	CustomerRepository customerRepository1;
 
@@ -34,6 +37,7 @@ public class AdminServiceImpl implements AdminService {
 		Admin admin = adminRepository1.findById(adminId).get();
 		admin.setPassword(password);
 		adminRepository1.save(admin);
+
 		return admin;
 
 	}
@@ -56,4 +60,5 @@ public class AdminServiceImpl implements AdminService {
 		//Find the list of all customers
 		return customerRepository1.findAll();
 	}
+
 }

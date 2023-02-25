@@ -14,6 +14,7 @@ public class DriverServiceImpl implements DriverService {
 
 	@Autowired
 	DriverRepository driverRepository3;
+
 	@Autowired
 	CabRepository cabRepository3;
 
@@ -31,6 +32,8 @@ public class DriverServiceImpl implements DriverService {
 		driver.setCab(cab);
 
 		driverRepository3.save(driver);
+
+		//We will not save driver explicitly because of cascading effect (here driver is child and cab is parent)
 	}
 
 	@Override
@@ -38,6 +41,7 @@ public class DriverServiceImpl implements DriverService {
 		// Delete driver without using deleteById function
 		Driver driver = driverRepository3.findById(driverId).get();
 		driverRepository3.delete(driver);
+
 	}
 
 	@Override
